@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes, useLocation} from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import SocialLinks from "./components/SocialLinks/SocialLinks";
+import MainPageContainer from "./components/MainPage/MainPageContainer";
+import LoginPage from "./components/LoginPage/LoginPage";
+import AllCoursesContainer from "./components/AllCoursesPage/AllCoursesContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+    const {pathname} = useLocation();
+    return (
+            <div className={pathname !== "/login-page" ? "app-wrapper" : "app-wrapper-height"}>
+                {pathname !== "/login-page" && <NavBar />}
+                <Routes>
+                    <Route path={"/main-page/*"} element={<MainPageContainer/>}></Route>
+                    <Route path={"/all-courses/*"} element={<AllCoursesContainer />}></Route>
+                    <Route path={"/login-page/*"} element={<LoginPage/>}></Route>
+                </Routes>
+                {pathname !== "/login-page" && <SocialLinks />}
+            </div>
+    );
 }
 
 export default App;

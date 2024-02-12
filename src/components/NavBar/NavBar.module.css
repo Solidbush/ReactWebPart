@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    gap: 16px;
+}
+
+nav a:last-child {
+    margin-left: auto;
+    border-radius: 50%;
+}
+
+.nav__item {
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 500;
+    background: inherit;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    transition: background 0.25s, color 0.25s;
+}
+
+.nav__item:hover {
+    background: #5D26C1;
+}
+
+.active {
+    background: chocolate;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    transition: background 0.25s, color 0.25s;
+}
