@@ -4,7 +4,7 @@ import AllCoursesPage from "./AllCoursesPage";
 
 let mapStateToProps = (state) => {
     return {
-        courses: state.allCoursesPage.coursesData
+        courses: state.allCoursesPage.coursesData,
     }
 }
 
