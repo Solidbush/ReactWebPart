@@ -1,21 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import style from "./MainPage.module.css"
 import {NavLink} from "react-router-dom";
 import playButton from "../../assets/images/main-page/play__button.png"
-import LoadTimeFooter from "../AllCoursesPage/LoadTimeFooter/LoadTimeFooter";
-import axios from "axios";
 const MainPage = (props) => {
-    const [time, setTime] = useState('-1');
-
-    useEffect(() => {
-        axios.get('https://backend-part-project-ni65.onrender.com/get-request')
-            .then((repos) => {
-                const {time} = repos.data.headers
-                console.log(time)
-                setTime(time)
-            });
-    }, []);
-
     return (
         <div>
             <section className={style}>
@@ -40,7 +27,6 @@ const MainPage = (props) => {
                     }
                 </div>
             </section>
-            <LoadTimeFooter serverTime={time}/>
         </div>
     )
 }
