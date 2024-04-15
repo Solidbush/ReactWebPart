@@ -14,7 +14,7 @@ const MainPage = (props) => {
                 console.log(time)
                 setTime(time)
             });
-    }, [setTime]);
+    }, []);
 
     return (
         <div>
