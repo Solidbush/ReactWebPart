@@ -2,7 +2,10 @@ import React from "react";
 import style from "./MainPage.module.css"
 import {NavLink} from "react-router-dom";
 import playButton from "../../assets/images/main-page/play__button.png"
-const MainPage = (props) => {
+import {useTopCourses} from "../../store";
+
+const MainPage = () => {
+    const topCourses = useTopCourses((store) => store.topCoursesData)
     return (
         <div>
             <section className={style}>
@@ -21,7 +24,7 @@ const MainPage = (props) => {
             <section className={style}>
                 <div className={style.courses__row}>
                     {
-                        props.topCourses.map((course) =>
+                        topCourses.map((course) =>
                             <NavLink id={course.id} to={course.path}><img src={course.link} alt={course.alt}/></NavLink>
                         )
                     }
